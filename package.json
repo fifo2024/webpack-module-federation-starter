@@ -1,0 +1,18 @@
+{
+  "name": "mf-demo",
+  "private": true,
+  "workspaces": [
+    "host",
+    "remote-nav",
+    "remote-shop",
+    "remote-cart"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start --workspace=remote-nav\" \"npm run start --workspace=remote-shop\" \"npm run start --workspace=remote-cart\" \"npm run start --workspace=host\"",
+    "build": "npm run build --workspace=remote-nav && npm run build --workspace=remote-shop && npm run build --workspace=remote-cart && npm run build --workspace=host",
+    "install:all": "npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
